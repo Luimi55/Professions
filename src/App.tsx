@@ -8,6 +8,7 @@ import TopBar from './components/TopBar';
 import SignUp from './screens/SignUp';
 import RequireAuth from './hooks/auth/RequireAuth';
 import Home from './screens/Home';
+import LogIn from './screens/LogIn';
 
 
 
@@ -21,6 +22,7 @@ function App() {
       {/* <TopBar/> */}
       <Routes>
         <Route path='/SignUp' Component={SignUp}/>
+        <Route path='/LogIn' Component={LogIn}/>
         <Route element={<RequireAuth/>}>
           <Route path='/' Component={Home}/>
         </Route>

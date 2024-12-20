@@ -10,7 +10,7 @@ const RequireAuth = () => {
   return (
     isAuthenticated()
       ?(<><TopBar/><Outlet/></>)//If is authenticated return TopBar and Children
-      :<Navigate to="/SignUp"/>//TODO: Cambiar a login luego
+      :<Navigate to="/LogIn"/>//TODO: Cambiar a login luego
   )
 }
 
