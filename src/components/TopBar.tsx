@@ -35,9 +35,9 @@ const TopBar = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [type, setType] = useState<DrawerType>("overlay");
   const restoreFocusSourceAttributes = useRestoreFocusSource();
-  const classes = useStyles();
+  const styles = useStyles();
   return (
-    <div className={classes.container}>
+    <div className={styles.container}>
       <Hamburger size="medium" onClick={() => setIsOpen(!isOpen)} />
 
         {/*TODO: Separar en componente aparte */}
@@ -48,7 +48,7 @@ const TopBar = (props: Props) => {
         open={isOpen}
         onOpenChange={(_, { open }) => setIsOpen(open)}
         type={type}
-        className={classes.drawer}
+        className={styles.drawer}
       >
         <NavDrawerHeader>
             <Title3>
@@ -56,10 +56,10 @@ const TopBar = (props: Props) => {
             </Title3>
         </NavDrawerHeader>
         <NavDrawerBody>
-          <NavItem icon={<Board20Regular />} className={classes.drawerItems} value="1">
+          <NavItem icon={<Board20Regular />} className={styles.drawerItems} value="1">
             Dashboard
           </NavItem>
-          <NavItem icon={<Board20Regular />} className={classes.drawerItems} value="2">
+          <NavItem icon={<Board20Regular />} className={styles.drawerItems} value="2">
             Dashboard
           </NavItem>
         </NavDrawerBody>

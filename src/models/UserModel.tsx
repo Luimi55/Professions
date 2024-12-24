@@ -1,6 +1,6 @@
 interface UserModel {
     name:string,
-    email: string,
+    email?: string,
     description?: string,
     jobTitle?: string,
     country?: string,
