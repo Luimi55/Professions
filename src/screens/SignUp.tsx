@@ -15,17 +15,18 @@ import countries from "../../data/Countries.json"
 import { useFormik } from 'formik' 
 import * as Yup from 'yup';
 import UserModel from "../models/UserModel";
-import { useSelector, useDispatch } from 'react-redux'
 import {RootState} from '../redux/Store'
+import useLocalUser from '../hooks/useLocalUser'
 
 type Props = {};
 
 
 const SignUp = (props: Props) => {
   const styles = useStyles();
+  const localUser = useLocalUser();
 
   const getUserName = () => {
-    const user: UserModel = useSelector((state: RootState) =>state.User)
+    const user: UserModel | null = localUser.getUser();
     if(user){
       return user.name
     } else {

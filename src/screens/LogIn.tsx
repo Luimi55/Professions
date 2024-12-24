@@ -6,17 +6,16 @@ import {
   } from "@fluentui/react-components";
   import axios from 'axios';
 import useGoogleApi from '../hooks/useGoogleApi';
-import { useSelector, useDispatch } from 'react-redux'
-import { setUser } from '../redux/reducers/UserSlice';
 import UserModel from '../models/UserModel';
+import useLocalUser from '../hooks/useLocalUser'
 
 type Props = {}
 
 const LogIn = (props: Props) => {
 
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const {getUserInfoAsync} = useGoogleApi();
+    const localUser = useLocalUser();
 
     const login = useGoogleLogin({
         onSuccess: (loginRes) => {
@@ -25,7 +24,7 @@ const LogIn = (props: Props) => {
                     name: infoRes.data.name,
                     email: infoRes.data.email
                 }
-                dispatch(setUser(user))
+                localUser.setUser(user)
                 //TODO: Chequear si correo esta en DB
                 navigate("/SignUp")
             })
